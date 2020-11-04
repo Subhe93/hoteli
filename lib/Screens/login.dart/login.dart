@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hoteli/Screens/Home/home.dart';
 import 'package:hoteli/Screens/login.dart/forgotPassword.dart';
 import 'package:hoteli/constants.dart';
 
@@ -135,11 +136,13 @@ class Login extends StatelessWidget {
               height: 30,
             ),
             RoundedButton(
-         
-              color: darkGold,
-              textcolor: wight,
-              text: 'Login',
-            ),
+                color: darkGold,
+                textcolor: wight,
+                text: 'Login',
+                tapped: () => Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => Home()))),
           ],
         ),
       ),

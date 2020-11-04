@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hoteli/Screens/Home/home.dart';
 
 import '../../constants.dart';
 import 'components/roundedTextBox.dart';
@@ -140,6 +141,10 @@ class CreateAccount extends StatelessWidget {
                     color: darkGold,
                     textcolor: wight,
                     text: 'Sign up',
+                    tapped: () => Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) => Home())),
                   ),
                   SizedBox(
                     height: 20,
