@@ -102,7 +102,7 @@ class UpComingHotelCard extends StatelessWidget {
                               Container(
                                 width: 100,
                                 child: Text(
-                                  '${hotel.distance} km to the citysa asdasd ',
+                                  '${hotel.distance} km to the city ',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: labelColor, fontSize: 16),

@@ -5,7 +5,7 @@ import 'package:hoteli/constants.dart';
 
 import 'components/Explore/Explore.dart';
 import 'components/Profile.dart';
-import 'components/Tips/Tips.dart';
+import 'components/Tips/Trips.dart';
 
 class Home extends StatefulWidget {
   static String id = 'home';
