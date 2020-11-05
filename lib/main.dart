@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hoteli/Screens/Home/home.dart';
 import 'package:hoteli/Screens/get_started.dart';
 import 'package:hoteli/constants.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         initialRoute: GetStarted.id,
         routes: {
           GetStarted.id: (context) => GetStarted(),
+          Home.id: (context) => Home()
         });
   }
 }

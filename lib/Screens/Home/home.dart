@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hoteli/constants.dart';
 
-import 'components/Explore.dart';
+import 'components/Explore/Explore.dart';
 import 'components/Profile.dart';
-import 'components/Tips.dart';
+import 'components/Tips/Tips.dart';
 
 class Home extends StatefulWidget {
   static String id = 'home';
@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
+
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
