@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hoteli/constants.dart';
 
 import 'components/Explore/Explore.dart';
-import 'components/Profile.dart';
+import 'components/Profile/Profile.dart';
 import 'components/Tips/Trips.dart';
 
 class Home extends StatefulWidget {

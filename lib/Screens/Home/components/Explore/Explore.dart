@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hoteli/Model/models.dart';
 import 'package:hoteli/Screens/Home/components/Explore/widgets/dealsCard.dart';
 import 'package:hoteli/Screens/Home/components/Explore/widgets/pop_destinations.dart';
+import 'package:hoteli/Screens/Hotel/hotel.dart';
+import 'package:hoteli/Util/fadeAnimations.dart';
 
 import 'package:hoteli/constants.dart';
 
@@ -16,120 +18,150 @@ class Explore extends StatefulWidget {
 
 class _ExploreState extends State<Explore> {
   @override
+  List<Hotel> hotels = [
+    Hotel(
+        image: 'images/views.jpg',
+        name: 'Grand Royal Hotel',
+        price: '180',
+        distance: '2.0',
+        rating: 4.1),
+    Hotel(
+        image: 'images/views1.jpg',
+        name: 'Queen Hotel',
+        price: '200',
+        distance: '2.0',
+        rating: 4.5),
+    Hotel(
+        image: 'images/views2.jpg',
+        name: 'La Blasa Hotel',
+        price: '200',
+        distance: '2.0',
+        rating: 4.5)
+  ];
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      child: Stack(
-        children: [
-          CustomScrollView(
-            slivers: [
-              SliverPersistentHeader(
-                  pinned: true,
-                  delegate: ExplorePageHeader(
-                    expandedHeight: MediaQuery.of(context).size.height,
-                  )),
-              SliverList(
-                  delegate: SliverChildListDelegate([
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Popular Destinations',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+      child: FadeAnimation(
+        0.5,
+        Stack(
+          children: [
+            CustomScrollView(
+              slivers: [
+                SliverPersistentHeader(
+                    pinned: true,
+                    delegate: ExplorePageHeader(
+                      expandedHeight: MediaQuery.of(context).size.height,
+                    )),
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                Container(
-                  height: 220,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      PopularDestinationCard(
-                        image: 'images/pop1.jpg',
-                        title: 'Paris',
-                      ),
-                      PopularDestinationCard(
-                        image: 'images/pop2.jpg',
-                        title: 'Venice',
-                      ),
-                      PopularDestinationCard(
-                        image: 'images/pop3.jpg',
-                        title: 'Spain',
-                      )
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Popular Destinations',
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Best Deals',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
+                  Container(
+                    height: 220,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        PopularDestinationCard(
+                          image: 'images/pop1.jpg',
+                          title: 'Paris',
                         ),
-                      ),
-                      Row(
-                        children: [
-                          Text('View all'),
-                          SizedBox(
-                            width: 10,
+                        PopularDestinationCard(
+                          image: 'images/pop2.jpg',
+                          title: 'Venice',
+                        ),
+                        PopularDestinationCard(
+                          image: 'images/pop3.jpg',
+                          title: 'Spain',
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Best Deals',
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
                           ),
-                        ],
-                      )
-                    ],
+                        ),
+                        Row(
+                          children: [
+                            Text('View all'),
+                            SizedBox(
+                              width: 10,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Container(
+                  Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.width,
+                      child: ListView.builder(
+                        itemCount: hotels.length,
+                        itemBuilder: (context, index) => InkWell(
+                          onTap: () => Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      HotelDetails(
+                                        hotel: hotels[index],
+                                      ))),
+                          child: DealsCard(
+                            hotel: hotels[index],
+                          ),
+                        ),
+                      ))
+                ]))
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30), color: wight),
+                  height: 50,
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.width,
-                  child: ListView(
+                  child: Row(
                     children: [
-                      DealsCard(),
-                      DealsCard(),
-                      DealsCard(),
-                      DealsCard()
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Icon(
+                        FontAwesomeIcons.search,
+                        color: darkGold,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Where are you going?')
                     ],
                   ),
-                )
-              ]))
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30), color: wight),
-                height: 50,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Icon(
-                      FontAwesomeIcons.search,
-                      color: darkGold,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Where are you going?')
-                  ],
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ));
   }

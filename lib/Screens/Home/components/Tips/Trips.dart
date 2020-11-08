@@ -5,6 +5,7 @@ import 'package:hoteli/Model/models.dart';
 import 'package:hoteli/Screens/Home/components/Explore/widgets/dealsCard.dart';
 import 'package:hoteli/Screens/Home/components/Tips/widgets/EndedTrips.dart';
 import 'package:hoteli/Screens/Home/components/Tips/widgets/UpComingHotelcards.dart';
+import 'package:hoteli/Util/fadeAnimations.dart';
 import 'package:hoteli/constants.dart';
 
 class Trips extends StatefulWidget {
@@ -128,8 +129,9 @@ class EndedList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
+    return FadeAnimation(
+      0.5,
+      ListView.builder(
         itemCount: ended.length,
         itemBuilder: (context, index) => EndedTrips(hotel: ended[index]),
       ),
@@ -147,12 +149,15 @@ class Favroites extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.width,
-      child: ListView.builder(
-        itemCount: favorites.length,
-        itemBuilder: (context, index) => favorites[index],
+    return FadeAnimation(
+      0.5,
+      Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.width,
+        child: ListView.builder(
+          itemCount: favorites.length,
+          itemBuilder: (context, index) => favorites[index],
+        ),
       ),
     );
   }
@@ -168,11 +173,14 @@ class UpcomingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) => UpComingHotelCard(
-        hotel: upComing[index],
+    return FadeAnimation(
+      0.5,
+      ListView.builder(
+        itemBuilder: (context, index) => UpComingHotelCard(
+          hotel: upComing[index],
+        ),
+        itemCount: upComing.length,
       ),
-      itemCount: upComing.length,
     );
   }
 }

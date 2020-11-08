@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:hoteli/Model/models.dart';
 
 import '../../../../../constants.dart';
 
 class DealsCard extends StatelessWidget {
+  final Hotel hotel;
   const DealsCard({
     Key key,
+    this.hotel,
   }) : super(key: key);
 
   @override
@@ -36,7 +39,7 @@ class DealsCard extends StatelessWidget {
                       topLeft: Radius.circular(30),
                       bottomLeft: Radius.circular(30)),
                   image: DecorationImage(
-                    image: AssetImage('images/views1.jpg'),
+                    image: AssetImage(hotel.image),
                     fit: BoxFit.cover,
                   )),
             ),
@@ -50,7 +53,7 @@ class DealsCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Grand Royal Hotel',
+                    hotel.name,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                   Text(
@@ -67,13 +70,13 @@ class DealsCard extends StatelessWidget {
                             children: [
                               Icon(CupertinoIcons.location),
                               Text(
-                                '2.0 km to the city',
+                                '${hotel.distance} km to the city',
                                 style: TextStyle(color: labelColor),
                               )
                             ],
                           ),
                           RatingBar(
-                            initialRating: 4.5,
+                            initialRating: hotel.rating,
                             minRating: 1,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
@@ -90,7 +93,7 @@ class DealsCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('\$180',
+                          Text('\$${hotel.price}',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 25,
