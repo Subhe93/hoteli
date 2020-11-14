@@ -14,7 +14,7 @@ class EndedTrips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 210,
+      height: MediaQuery.of(context).size.height / 3.6,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -83,7 +83,7 @@ class EndedTrips extends StatelessWidget {
                     ],
                   ),
                   RatingBar(
-                    initialRating:hotel.rating,
+                    initialRating: hotel.rating,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,

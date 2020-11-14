@@ -56,10 +56,14 @@ class _TripsState extends State<Trips> {
         rating: 4.5)
   ];
   List<DealsCard> favorites = [
-    DealsCard(),
-    DealsCard(),
-    DealsCard(),
-    DealsCard()
+    DealsCard(
+      hotel: Hotel(
+          image: 'images/views.jpg',
+          name: 'Grand Royal Hotel',
+          price: '180',
+          distance: '2.0',
+          rating: 4.1),
+    ),
   ];
   int index = 0;
   @override
@@ -67,7 +71,7 @@ class _TripsState extends State<Trips> {
     return Container(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(left: 20.0, right: 20, top: 40),
+          padding: const EdgeInsets.only(left: 10.0, right: 10, top: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -153,7 +157,7 @@ class Favroites extends StatelessWidget {
       0.5,
       Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: ListView.builder(
           itemCount: favorites.length,
           itemBuilder: (context, index) => favorites[index],

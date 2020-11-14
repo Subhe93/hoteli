@@ -36,15 +36,17 @@ class _HomeState extends State<Home> {
             _currentIndex, // this will be set when a new tab is tapped
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(CupertinoIcons.search),
-            title: new Text('Explore'),
+            icon: Icon(CupertinoIcons.search),
+            label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: new Icon(FontAwesomeIcons.heart),
-            title: new Text('Trips'),
+            icon: Icon(FontAwesomeIcons.heart),
+            label: 'Trips',
           ),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person), title: Text('Profile'))
+            icon: Icon(CupertinoIcons.person),
+            label: 'Profile',
+          ),
         ],
       ),
     );

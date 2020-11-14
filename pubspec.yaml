@@ -34,10 +34,20 @@ dependencies:
   dots_indicator: ^1.2.0
   percent_indicator: ^2.1.8
   flutter_map: any
+  page_transition: ^1.1.7+2
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  image_path: "images/icon.png"
+  android: true
+  ios: true
+  
 
 flutter:
 

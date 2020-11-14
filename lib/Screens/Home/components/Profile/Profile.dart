@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hoteli/Screens/Home/components/Profile/changePassword.dart';
+import 'package:hoteli/Screens/Home/components/Profile/helpCenter.dart';
+import 'package:hoteli/Screens/Home/components/Profile/settings.dart';
 import 'package:hoteli/Util/fadeAnimations.dart';
 import 'package:hoteli/constants.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Profile extends StatefulWidget {
   static String id = 'profile';
@@ -60,23 +64,33 @@ class _ProfileState extends State<Profile> {
                       const EdgeInsets.only(right: 20.0, top: 8, bottom: 8),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Change Password',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20,
-                                )),
-                            Icon(
-                              FontAwesomeIcons.lock,
-                              color: labelColor,
-                            )
-                          ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  type: PageTransitionType.bottomToTop,
+                                  child: ChangePasswordScreen()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Change Password',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20,
+                                  )),
+                              Icon(
+                                FontAwesomeIcons.lock,
+                                color: labelColor,
+                              )
+                            ],
+                          ),
                         ),
                       ),
+                      Divider(),
                       Padding(
                         padding: const EdgeInsets.only(top: 10.0, bottom: 10),
                         child: Row(
@@ -95,6 +109,7 @@ class _ProfileState extends State<Profile> {
                           ],
                         ),
                       ),
+                      Divider(),
                       Padding(
                         padding: const EdgeInsets.only(top: 10.0, bottom: 10),
                         child: Row(
@@ -112,23 +127,33 @@ class _ProfileState extends State<Profile> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Help Center',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20,
-                                )),
-                            Icon(
-                              FontAwesomeIcons.infoCircle,
-                              color: labelColor,
-                            )
-                          ],
+                      Divider(),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HelpCenterScreen()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Help Center',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20,
+                                  )),
+                              Icon(
+                                FontAwesomeIcons.infoCircle,
+                                color: labelColor,
+                              )
+                            ],
+                          ),
                         ),
                       ),
+                      Divider(),
                       Padding(
                         padding: const EdgeInsets.only(top: 10.0, bottom: 10),
                         child: Row(
@@ -146,23 +171,34 @@ class _ProfileState extends State<Profile> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Settings',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20,
-                                )),
-                            Icon(
-                              Icons.settings,
-                              color: labelColor,
-                            )
-                          ],
+                      Divider(),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  type: PageTransitionType.bottomToTop,
+                                  child: Settings()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Settings',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20,
+                                  )),
+                              Icon(
+                                Icons.settings,
+                                color: labelColor,
+                              )
+                            ],
+                          ),
                         ),
                       ),
+                      Divider(),
                     ],
                   ),
                 )

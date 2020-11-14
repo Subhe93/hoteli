@@ -4,10 +4,8 @@ import '../../../constants.dart';
 
 class RoundedTextBox extends StatelessWidget {
   final String hint;
-  const RoundedTextBox({
-    Key key,
-    this.hint,
-  }) : super(key: key);
+  final Widget prefIcon;
+  const RoundedTextBox({Key key, this.hint, this.prefIcon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +31,7 @@ class RoundedTextBox extends StatelessWidget {
         child: TextField(
           decoration: InputDecoration(
             hintText: hint,
+            prefixIcon: prefIcon,
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
             errorBorder: InputBorder.none,

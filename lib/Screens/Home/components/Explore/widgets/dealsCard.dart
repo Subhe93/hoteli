@@ -18,7 +18,7 @@ class DealsCard extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(18),
           color: wight,
           boxShadow: [
             BoxShadow(
@@ -36,8 +36,8 @@ class DealsCard extends StatelessWidget {
               width: 120,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      bottomLeft: Radius.circular(30)),
+                      topLeft: Radius.circular(18),
+                      bottomLeft: Radius.circular(18)),
                   image: DecorationImage(
                     image: AssetImage(hotel.image),
                     fit: BoxFit.cover,
