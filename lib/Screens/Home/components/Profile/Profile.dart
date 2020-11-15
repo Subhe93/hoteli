@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hoteli/Screens/Home/components/Profile/InviteFreinds.dart';
 import 'package:hoteli/Screens/Home/components/Profile/changePassword.dart';
 import 'package:hoteli/Screens/Home/components/Profile/helpCenter.dart';
 import 'package:hoteli/Screens/Home/components/Profile/settings.dart';
@@ -91,22 +92,31 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       Divider(),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Invite Friends',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20,
-                                )),
-                            Icon(
-                              Icons.people,
-                              color: labelColor,
-                              size: 30,
-                            )
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: InviteFreindsScreen(),
+                                  type: PageTransitionType.bottomToTop));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Invite Friends',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20,
+                                  )),
+                              Icon(
+                                Icons.people,
+                                color: labelColor,
+                                size: 30,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Divider(),
